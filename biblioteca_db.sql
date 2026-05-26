@@ -34,4 +34,24 @@ CREATE TABLE libro_autor (
 
 SELECT * FROM libro_autor;
 
+-- Parte #4 Insertar datos: 
+
+INSERT INTO libros (codigo, titulo, paginas)
+VALUES
+('LIB01', 'Cien Anos de Soledad', 471),
+('LIB02', 'El Amor en los Tiempos del Colera', 348),
+('LIB03', 'Cronica de una Muerte Anunciada', 122),
+('LIB04', 'Dona Barbara', 428),
+('LIB05', 'Canaima', 320),
+('LIB06', 'La Trepadora', 290),
+('LIB07', 'El Alquimista', 208),
+('LIB08', 'Brida', 288),
+('LIB09', 'Veronika Decide Morir', 240),
+('LIB10', 'Bruna Soroche y los Tios', 310);
+
+
+
+
+
+
 

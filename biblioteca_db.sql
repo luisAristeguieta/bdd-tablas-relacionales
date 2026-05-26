@@ -18,4 +18,20 @@ CREATE TABLE autores (
 SELECT * FROM libros;
 SELECT * FROM autores;
 
+-- Parte # 3 Tabla rompimiento con PK compuestas y FK:
+
+CREATE TABLE libro_autor (
+	la_libro_codigo_fk VARCHAR(5) NOT NULL,
+	la_autor_id_fk INT NOT NULL,
+	anio_publicacion INT NOT NULL,
+
+	CONSTRAINT pk_libro_autor PRIMARY KEY (la_libro_codigo_fk, la_autor_id_fk),
+		
+	CONSTRAINT fk_libro_autor_libro FOREIGN KEY (la_libro_codigo_fk) REFERENCES libros(codigo),
+	CONSTRAINT fk_autor_libro_autor FOREIGN KEY (la_autor_id_fk) REFERENCES autores(id)
+	
+);
+
+SELECT * FROM libro_autor;
+
 

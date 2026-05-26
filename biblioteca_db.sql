@@ -49,8 +49,65 @@ VALUES
 ('LIB09', 'Veronika Decide Morir', 240),
 ('LIB10', 'Bruna Soroche y los Tios', 310);
 
+INSERT INTO autores (id, nombre, pais)
+VALUES
+(1, 'Gabriel Garcia Marquez', 'Colombia'),
+(2, 'Romulo Gallegos', 'Venezuela'),
+(3, 'Paulo Coelho', 'Brasil'),
+(4, 'Alicia Yanez Cossio', 'Ecuador');
+
+INSERT INTO libro_autor (la_libro_codigo_fk, la_autor_id_fk, anio_publicacion)
+VALUES
+('LIB01', 1, 1967),
+('LIB02', 1, 1985),
+('LIB03', 1, 1981),
+('LIB04', 2, 1929),
+('LIB05', 2, 1935),
+('LIB06', 2, 1925),
+('LIB07', 3, 1988),
+('LIB08', 3, 1990),
+('LIB09', 3, 1998),
+('LIB10', 4, 1973);
+
+-- Parte 5 Consultas SQL: 
+--Consulta #1:
+
+select l.titulo, a.nombre, a.pais, la.anio_publicacion
+from libro_autor la
+inner join libros l
+    on la.la_libro_codigo_fk = l.codigo
+inner join autores a
+    on la.la_autor_id_fk = a.id;
 
 
+-- Consulta # 2:
+
+select l.titulo,la.anio_publicacion
+from libros l
+inner join libro_autor la
+    on l.codigo = la.la_libro_codigo_fk     -- condición de unión
+where la.anio_publicacion > 2020;          -- filtros adicionales
+
+--Consulta # 3: 
+
+select a.nombre, a.pais from autores a where pais like '%Venezuela%';
+
+--Consulta # 4: 
+
+select l.titulo, la.anio_publicacion
+from libros l
+inner join libro_autor la
+    on l.codigo = la.la_libro_codigo_fk      -- condición de unión
+ORDER BY la.anio_publicacion desc;           -- filtros adicionales
+
+-- Consulta #5: 
+
+select a.nombre, count(*) as Cantidad_de_Libros
+from autores a
+inner join libro_autor la
+    on a.id = la.la_autor_id_fk     -- condición de unión
+group by a.nombre
+ORDER BY Cantidad_de_Libros;
 
 
 

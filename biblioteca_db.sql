@@ -109,6 +109,16 @@ inner join libro_autor la
 group by a.nombre
 ORDER BY Cantidad_de_Libros;
 
+-- Parte #6:
+
+alter table libros add column precio double precision;
+
+-- Actualizar al menos 3 precios: 
+
+update libros set precio = 120.00 where codigo = 'LIB01';
+update libros set precio = 100.00 where codigo = 'LIB02';
+update libros set precio = 650.00 where codigo = 'LIB05';
+update libros set precio = 0 where precio is null;
 
 
 
